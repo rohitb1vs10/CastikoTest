@@ -41,7 +41,8 @@ simplehttpserver
 This is using a cloud hosted mongo instance, so you dont need mongo locally.
 
 
-End with an example of getting some data out of the system or using it for a little demo
+
+
 
 ## Testing the app
 
