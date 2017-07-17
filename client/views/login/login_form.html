@@ -1,0 +1,30 @@
+<div>
+  <section>
+
+  {{error_mssg}}
+    <form name="loginForm" ng-submit="authenticateUser()" novalidate>
+      <h1>Login Form</h1>
+      <div>
+        <input name="login_username" type="text" class="form-control" placeholder="Username" required ng-model="user_name"/>
+      </div>
+      <div>
+        <input name="login_password" type="password" class="form-control" placeholder="Password" required ng-model="password"/>
+      </div>
+      <div>
+        <button type="submit" name="LogIn" ng-disabled="loginForm.$invalid">Log In</button>
+        <a class="reset_pass" href="#">Lost your password?</a>
+      </div>
+
+      <div>
+        <p>New to site?
+          <a href="#!/signup"> Create Account </a>
+        </p>
+        <br />
+        <br/>
+        <div>
+          <h4>Castiko Test</h4>
+        </div>
+      </div>
+    </form>
+  </section>
+</div>

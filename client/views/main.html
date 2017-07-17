@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="MainModule">
+
+<head>
+  <meta charset="utf-8" />
+  <title>AngularJS drag</title>
+
+  <link rel="stylesheet" href="../build/css/main.css" />
+</head>
+
+<body>
+  <div class="container" ng-controller="MainCtrl">
+    <div ng-hide="!reset" class="centered">
+        <button ng-click="resetGame()">start the game</button>
+    </div>
+
+    <div ng-hide="reset">
+        <button ng-click="logout()">logout</button>
+        <br/><br/>
+        Sorting Cards :)
+        {{"welcome to the game " + currentUser.user_name}}
+
+        <!-- All cards -->
+        <div class="row">
+            <div class="col-xs-12" ui-on-Drop="onDrop($event,$data,cards)" drop-validate="dropValidate('cards', $data, cards)">
+                <div ui-draggable="true" drag="cards[$index]" 
+                on-drop-success="dropSuccessHandler($event,$index,cards)"
+                ng-repeat="card in cards track by $index" class="col-xs-1 small-box">
+                    {{card.value + " of " + card.suit}}
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Lower Stacks -->
+        <div class="row" id="footer">
+            <div class="col-xs-3 box-border" ng-repeat="(key, value) in deck">
+            {{key}}
+                <ul ui-on-Drop="onDrop($event,$data,key)" drop-validate="dropValidate(key, $data)">
+                    <li ui-draggable="false" drag="value[$index]" 
+                    on-drop-success="dropSuccessHandler($event,$index,key)"
+                    ng-repeat="card in value track by $index">
+                        {{card.value + " of " + card.suit}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="../vendors/angular/angular.min.js"></script>
+    <script src="../build/js/app.js"></script>
+    <script src="../build/js/services/currentUserService.js"></script>
+    <script src="../build/js/services/currentCardService.js"></script>
+    <script src="../vendors/draganddrop/draganddrop.js"></script>
+</body>
+
+</html>

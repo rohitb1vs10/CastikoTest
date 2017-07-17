@@ -1,0 +1,31 @@
+<div id="register">
+  <section>
+  {{registerError}}
+    <form name="registerForm" ng-submit="addNewUser()" novalidate>
+      <h1>Create Account</h1>
+      
+      <div>
+        <input name="username" type="text" class="form-control" placeholder="Username" required="required" ng-model="newUser.user_name"/>
+      </div>
+      <div>
+        <input name="password" type="password" class="form-control" placeholder="Password" required="required" ng-model="newUser.password"/>
+      </div>
+      <br>
+      <div>
+        <button type="submit" name="Register" ng-disabled="registerForm.$invalid">Register</button>
+        <a href="#">Lost your password?</a>
+      </div>
+
+
+      <div>
+        <p>Already a member ?
+          <a href="#!/signin"> Log in </a>
+        </p>
+        <br />
+        <div>
+          <h4>Castiko Test</h4>
+        </div>
+      </div>
+    </form>
+  </section>
+</div>
